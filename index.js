@@ -70,13 +70,6 @@ app.post('/slack/taketaro', (req, res) => {
     response_type: "in_channel",
     blocks: [
       {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `🎲 Random number: *${randomNumber}*`
-        }
-      },
-      {
         type: "image",
         image_url: imageUrl,
         alt_text: `Number ${randomNumber}`
