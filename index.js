@@ -8,7 +8,7 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('index', (req, res) => {
+app.get('/index', (req, res) => {
   res.json('Hello! I am Take Taro!');
 });
 
