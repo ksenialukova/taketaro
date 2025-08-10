@@ -4,12 +4,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const BASE_URL = process.env.BASE_URL || "http://localhost:" + PORT;
 
-// Робимо папку public публічною для доступу до картинок
 app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 
-app.post("/slack/taketaro", (req, res) => {
+app.get('index', (req, res) => {
+  res.json('Hello! I am Take Taro!');
+});
+
+app.post('/slack/taketaro', (req, res) => {
   // Генеруємо випадкове число від 1 до 10 (можна більше)
   const randomNumber = Math.floor(Math.random() * 10) + 1;
 
