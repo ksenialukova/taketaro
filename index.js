@@ -17,13 +17,26 @@ app.post('/slack/taketaro', (req, res) => {
   const randomNumber = Math.floor(Math.random() * 10) + 1;
   console.log(`randomNumber: ${randomNumber}`);
   
-  const imageUrl = `${BASE_URL}/${randomNumber}.png`;
+  const imageUrl = `${BASE_URL}/${randomNumber}.jpg`;
 
   console.log(`imageUrl: ${imageUrl}`);
 
   res.json({
     response_type: "in_channel",
-    text: `Random number: *${randomNumber}*`,
+    blocks: [
+      {
+        type: "section",
+        text: {
+          type: "mrkdwn",
+          text: `🎲 Random number: *${randomNumber}*`
+        }
+      },
+      {
+        type: "image",
+        image_url: imageUrl,
+        alt_text: `Number ${randomNumber}`
+      }
+    ]
   });
 });
 
