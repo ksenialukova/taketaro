@@ -13,11 +13,13 @@ app.get('/index', (req, res) => {
 });
 
 app.post('/slack/taketaro', (req, res) => {
-  // Генеруємо випадкове число від 1 до 10 (можна більше)
+  console.log('Start /slack/taketaro');
   const randomNumber = Math.floor(Math.random() * 10) + 1;
+  console.log(`randomNumber: ${randomNumber}`);
 
-  // Формуємо URL картинки з папки public
   const imageUrl = `${BASE_URL}/${randomNumber}.png`;
+
+  console.log(`imageUrl: ${imageUrl}`);
 
   res.json({
     response_type: "in_channel",
