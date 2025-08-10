@@ -12,6 +12,23 @@ app.get('/index', (req, res) => {
   res.json('Hello! I am Take Taro!');
 });
 
+app.get('/policy', (req, res) => {
+  res.json(`Privacy Policy
+Effective date: August 10, 2025
+
+This Slack bot does not collect, store, or process any personal data from users.
+We do not track, log, or analyze any user messages, interactions, or metadata.
+All data sent to the bot is processed only temporarily for the purpose of generating a response, and is immediately discarded.
+We do not share any information with third parties.
+
+If you have any questions, you can contact us at: ksushalukova778@gmail.com`);
+});
+
+app.get('/support', (req, res) => {
+  res.json('If you have any questions, you can contact us at: ksushalukova778@gmail.com');
+});
+
+
 app.get("/install", async (req, res) => {
   const code = req.query.code;
   if (!code) {
@@ -35,8 +52,6 @@ app.get("/install", async (req, res) => {
     if (!data.ok) {
       return res.status(400).send(`OAuth failed: ${data.error}`);
     }
-
-    console.log("Access Token:", data.access_token);
 
     res.send("You authorised succesfully. You can close this tab.");
   } catch (error) {
