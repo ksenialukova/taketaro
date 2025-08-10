@@ -13,13 +13,10 @@ app.get('/index', (req, res) => {
 });
 
 app.post('/slack/taketaro', (req, res) => {
-  console.log('Start /slack/taketaro');
-  const randomNumber = Math.floor(Math.random() * 10) + 1;
-  console.log(`randomNumber: ${randomNumber}`);
+  console.log('Start GET /slack/taketaro');
+  const randomNumber = Math.floor(Math.random() * 78);
   
   const imageUrl = `${BASE_URL}/${randomNumber}.jpg`;
-
-  console.log(`imageUrl: ${imageUrl}`);
 
   res.json({
     response_type: "in_channel",
